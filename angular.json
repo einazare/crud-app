@@ -97,14 +97,7 @@
           }
         },
         "deploy": {
-          "builder": "@angular/fire:deploy",
-          "options": {
-            "prerender": false,
-            "ssr": false,
-            "browserTarget": "crud-app:build:production",
-            "firebaseProject": "crud-app-frameworks",
-            "firebaseHostingSite": "crud-app-frameworks"
-          }
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
