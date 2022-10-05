@@ -1,0 +1,60 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark min-h-full" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="fs-4">Sidebar</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li>
+            <a [routerLinkActive]="'active'" [routerLink]="'/dashboard/albums'" class="nav-link text-white">
+                <svg class="bi me-2" width="16" height="16">
+                    <use xlink:href="#speedometer2"></use>
+                </svg>
+                Albums
+            </a>
+        </li>
+        <li>
+            <a [routerLinkActive]="'active'" [routerLink]="'/dashboard/comments'" class="nav-link text-white">
+                <svg class="bi me-2" width="16" height="16">
+                    <use xlink:href="#table"></use>
+                </svg>
+                Comments
+            </a>
+        </li>
+        <li>
+            <a [routerLinkActive]="'active'" [routerLink]="'/dashboard/photos'" class="nav-link text-white">
+                <svg class="bi me-2" width="16" height="16">
+                    <use xlink:href="#grid"></use>
+                </svg>
+                Photos
+            </a>
+        </li>
+        <li>
+            <a [routerLinkActive]="'active'" [routerLink]="'/dashboard/posts'" class="nav-link text-white">
+                <svg class="bi me-2" width="16" height="16">
+                    <use xlink:href="#people-circle"></use>
+                </svg>
+                Posts
+            </a>
+        </li>
+        <li>
+            <a [routerLinkActive]="'active'" [routerLink]="'/dashboard/todos'" class="nav-link text-white">
+                <svg class="bi me-2" width="16" height="16">
+                    <use xlink:href="#people-circle"></use>
+                </svg>
+                Todos
+            </a>
+        </li>
+        <li>
+            <a [routerLinkActive]="'active'" [routerLink]="'/dashboard/users'" class="nav-link text-white">
+                <svg class="bi me-2" width="16" height="16">
+                    <use xlink:href="#people-circle"></use>
+                </svg>
+                Users
+            </a>
+        </li>
+    </ul>
+    <hr>
+</div>

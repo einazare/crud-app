@@ -1,0 +1,4 @@
+.min-h-screen {
+    /* 100 vh = 100% din inaltimea ecranului; */
+    min-height: 100vh;
+}

@@ -1,0 +1,45 @@
+<div class="p-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngIf="users.length === 0 && connectionError === false" class="col-12">
+                <div class="spinner-border text-info" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div *ngIf="connectionError" class="col-12">
+                <div class="alert alert-danger" role="alert">
+                    A aparut o eroare si nu am putut sa luam datele de pe server.
+                </div>
+            </div>
+            <div *ngFor="let user of users" class="col-12 col-sm-6 col-md-4 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        {{user.username}}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{user.name}}</h5>
+                        <h6 class="card-email">{{user.email}}</h6>
+                        <p class="card-text">{{user.body}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Street:</span><span>{{user.address.street}}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Suite:</span><span>{{user.address.suite}}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>City:</span><span>{{user.address.city}}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Zipcode:</span><span>{{user.address.zipcode}}</span>
+                        </li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="https://{{user.website}}" class="card-link" target="_blank">To the website</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

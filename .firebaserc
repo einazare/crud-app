@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crud-app-frameworks": {
+      "hosting": {
+        "crud-app": [
+          "crud-app-frameworks"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crud-app-frameworks"
+  }
+}

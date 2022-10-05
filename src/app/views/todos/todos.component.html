@@ -1,0 +1,93 @@
+<div class="p-5">
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                    <label for="new-todo-user-id" class="form-label">User ID</label>
+                    <input type="number" class="form-control" id="new-todo-user-id" placeholder="User ID">
+                </div>
+                <div class="mb-3">
+                    <label for="new-todo-title" class="form-label">Todo title</label>
+                    <input type="text" class="form-control" id="new-todo-title" placeholder="Todo title">
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="new-todo-completed">
+                    <label class="form-check-label" for="new-todo-completed">
+                        Not completed
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="modal.close('Create click')">Create</button>
+        </div>
+    </ng-template>
+
+    <button class="btn btn-lg btn-outline-primary ms-3 mb-4" (click)="open(content)">
+        <div *ngIf="postingNewTodo" class="spinner-border" role="status" style="width: 1.25rem; height: 1.25rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        Create new todo
+    </button>
+
+    <div *ngIf="postNewTodoError" class="col-12 mb-4 p-3">
+        <div class="alert alert-danger" role="alert">
+            A aparut o eroare si nu am putut sa adaugam noul todo pe server.
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngIf="todos.length === 0 && connectionError === false" class="col-12">
+                <div class="spinner-border text-info" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div *ngIf="connectionError" class="col-12">
+                <div class="alert alert-danger" role="alert">
+                    A aparut o eroare si nu am putut sa luam datele de pe server.
+                </div>
+            </div>
+            <div *ngFor="let todo of todos" class="col-12 col-sm-6 col-md-4 mt-4">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Daca am fi modificat la switchCompleted si title -->
+                        <!-- <h5 *ngIf="!todo.loading" class="card-title">{{todo.title}}</h5>
+                        <div *ngIf="todo.loading" class="spinner-border" role="status"
+                            style="width: 1.25rem; height: 1.25rem;">
+                            <span class="visually-hidden">Loading...</span>
+                        </div> -->
+                        <h5 class="card-title">{{todo.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">User ID: {{todo.userId}}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Todo ID: {{todo.id}}</h6>
+                        <div *ngIf="!todo.loading" class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                                [checked]="todo.completed" (change)="switchCompleted($event, todo.id)">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">
+                                {{todo.completed ? "Completed":"Not Completed"}}
+                            </label>
+                        </div>
+                        <div *ngIf="todo.loading" class="spinner-border text-primary" role="status"
+                            style="width: 1.25rem; height: 1.25rem;">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+
+                        <button class="btn btn-danger mt-4" (click)="deleteTodo(todo.id)">
+                            <div *ngIf="todo.deleting" class="spinner-border" role="status"
+                                style="width: 1.25rem; height: 1.25rem;">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            Delete todo
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+.min-h-full {
+    /* 
+        asta inseamna ca pe ce tag de HTML 
+        folosim clasa aceasta, tag-ul acela va 
+        avea aceeasi inaltime cu parintele lui 
+    */
+    min-height: 100%;
+}

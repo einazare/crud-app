@@ -1,0 +1,24 @@
+<div class="p-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngIf="posts.length === 0 && connectionError === false" class="col-12">
+                <div class="spinner-border text-info" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div *ngIf="connectionError" class="col-12">
+                <div class="alert alert-danger" role="alert">
+                    A aparut o eroare si nu am putut sa luam datele de pe server.
+                </div>
+            </div>
+            <div *ngFor="let post of posts" class="col-12 col-sm-6 col-md-4 mt-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <p class="card-text">{{post.body}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
